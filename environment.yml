@@ -1,0 +1,6 @@
+name: language-processing-lab
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - jupyterlab>=4.2,<5
