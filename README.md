@@ -1,98 +1,51 @@
-# آزمایشگاه پردازش زبان — Language Processing Laboratory
+# &#x2067;آزمایشگاه پردازش زبان — Language Processing Laboratory&#x2069;
 
-> مخزن عمومی دانشجویان — **فقط مطالب منتشرشده‌ی درس در این مخزن قرار می‌گیرد.**
+> مخزن آموزشی دانشجویان | محتوای جلسات به‌تدریج در دسترس قرار می‌گیرد.
 
 این مخزن برای آزمایشگاه کارشناسی پردازش زبان طراحی شده است. تمرکز درس بر یادگیری عملی، کدنویسی قابل بازتولید، تحلیل داده‌های زبانی و توجه ویژه به ویژگی‌های زبان فارسی است.
 
-## جلسه‌ی منتشرشده
+## جلسات منتشرشده
 
-### جلسه ۰۱ — مبانی پردازش متن فارسی
-
-**Foundations for Persian NLP: Jupyter, UTF-8, Unicode, and Data Hygiene**
-
-فایل اصلی:
-
-[`sessions/01_foundations/session01_persian_nlp_foundations.ipynb`](sessions/01_foundations/session01_persian_nlp_foundations.ipynb)
-
-در این جلسه با موارد زیر کار می‌کنید:
-
-- اجرای قابل‌بازتولید کد در Jupyter؛
-- تفاوت `str`، `bytes`، Unicode و UTF-8؛
-- تفاوت نویسه‌های فارسی و عربی مانند `ی/ي` و `ک/ك`؛
-- نرمال‌سازی Unicode و تفاوت آن با نرمال‌سازی زبانی؛
-- نیم‌فاصله / ZWNJ (`U+200C`)؛
-- طراحی یک نرمال‌ساز کوچک، شفاف و قابل‌آزمون؛
-- ممیزی کیفیت یک پیکره‌ی کوچک فارسی؛
-- `token`، `type` و Type–Token Ratio؛
-- تصمیم‌گیری آگاهانه درباره‌ی preprocessing.
+| محتوای جلسه | موضوع | جلسه |
+| ---: | ---: | ---: |
+| [01_foundations](sessions/01_foundations/session01_persian_nlp_foundations.ipynb) · [README](sessions/01_foundations/README.md) | &#x2067;مبانی پردازش متن فارسی: &#x2066;`Unicode`&#x2069;، &#x2066;`UTF-8`&#x2069;، &#x2066;`ZWNJ`&#x2069; و ممیزی داده&#x2069; | **۰۱** |
+| [02_regex_preprocessing](sessions/02_regex_preprocessing/session02_persian_regex_preprocessing.ipynb) · [README](sessions/02_regex_preprocessing/README.md) | &#x2067;عبارت‌های منظم (&#x2066;`regex`&#x2069;)، استخراج الگو، مدیریت فاصله‌ها و پیش‌پردازش نظام‌مند متن فارسی&#x2069; | **۰۲** |
 
 ## شروع سریع
 
-اگر Python و Jupyter را نصب دارید:
+&#x2067;Python **3.10 یا جدیدتر** توصیه می‌شود. از ریشهٔ مخزن:&#x2069;
 
 ```bash
 python -m pip install -r requirements.txt
+python scripts/check_environment.py
 jupyter lab
 ```
 
-سپس notebook جلسه ۰۱ را باز کنید.
+اگر برای اولین‌بار محیط را نصب می‌کنید: [راهنمای کامل نصب](docs/SETUP_FA.md).
 
-راهنمای کامل نصب:
-
-[`docs/SETUP_FA.md`](docs/SETUP_FA.md)
-
-بررسی محیط:
-
-```bash
-python scripts/check_environment.py
-```
+&#x2067;**برای جلسهٔ ۰۲، فایل** &#x2066;`sessions/02_regex_preprocessing/data/raw_persian_messages.txt`&#x2069; **را در کنار notebook مطابق ساختار موجود نگه دارید.** در JupyterLab، notebook را از پوشهٔ خودش باز کنید.&#x2069;
 
 ## قوانین مهم دانشجو
 
-1. نسخه‌ی starter را تغییر دهید و با نام `STUDENT_ID_session01.ipynb` ذخیره کنید.
-2. قبل از تحویل، **Restart Kernel and Run All Cells** را اجرا کنید.
-3. notebook نهایی باید بدون خطای syntax اجرا شود.
-4. پاسخ‌های تشریحی باید نشان‌دهنده‌ی فهم خود شما باشند.
-5. **فایل حل‌شده‌ی خود را در GitHub عمومی منتشر نکنید.**
-6. استفاده از منابع و ابزارهای هوش مصنوعی باید مطابق سیاست درس اعلام شود.
+1. &#x2067;فایل starter جلسهٔ مربوط را کامل کرده و با نام &#x2066;`STUDENT_ID_sessionXX.ipynb`&#x2069; ذخیره کنید (مانند &#x2066;`STUDENT_ID_session02.ipynb`&#x2069;).&#x2069;
+2. &#x2067;قبل از تحویل، **Restart Kernel and Run All Cells** را اجرا کنید.&#x2069;
+3. &#x2067;بخش‌های &#x2066;`TODO`&#x2069;، آزمون‌های عمومی و پاسخ‌های تشریحی را بررسی کنید.&#x2069;
+4. &#x2067;**فایل حل‌شدهٔ خود را در GitHub عمومی منتشر نکنید.**&#x2069;
+5. &#x2067;استفاده از منابع و AI باید مطابق سیاست درس اعلام شود.&#x2069;
 
 راهنماها:
 
 - [روش تحویل](docs/SUBMISSION_FA.md)
-- [سیاست استفاده از AI](docs/AI_USE_POLICY_FA.md)
+- &#x2067;[سیاست استفاده از AI](docs/AI_USE_POLICY_FA.md)&#x2069;
 - [صداقت علمی](docs/ACADEMIC_INTEGRITY_FA.md)
 - [رفع اشکال](docs/TROUBLESHOOTING_FA.md)
-- [واژه‌نامه‌ی جلسه ۰۱](docs/GLOSSARY_FA.md)
-
-## انتشار تدریجی
-
-این مخزن عمداً فقط شامل مطالبی است که مدرس منتشر کرده است. پوشه‌ی جلسه‌های آینده از قبل در مخزن قرار نمی‌گیرد و branch عمومیِ مخفی برای آن‌ها ساخته نمی‌شود.
-
-برای دیدن تغییرات منتشرشده:
-
-[`CHANGELOG.md`](CHANGELOG.md)
-
-## نیازمندی‌ها
-
-برای **خودِ محتوای جلسه ۰۱** فقط Python Standard Library لازم است. `JupyterLab` صرفاً برای اجرای notebook نصب می‌شود.
-
-نسخه‌ی پیشنهادی Python: **3.10 یا جدیدتر**.
-
-## کیفیت مخزن
-
-این مخزن دارای بررسی خودکار GitHub Actions است که:
-
-- ساختار انتشار عمومی را بررسی می‌کند؛
-- از وجود نام‌های رایج فایل‌های solution/instructor در commit عمومی جلوگیری می‌کند؛
-- notebook را از نظر JSON و syntax بررسی می‌کند؛
-- starter notebook را در محیط تمیز اجرا می‌کند.
-
-این بررسی‌ها جایگزین بازبینی مدرس نیستند، اما احتمال اشتباه در انتشار عمومی را کم می‌کنند.
+- [واژه‌نامهٔ درس](docs/GLOSSARY_FA.md)
+- [گزارش اشکال و پیشنهاد اصلاح](CONTRIBUTING.md)
 
 ---
 
 ## English summary
 
-This is the public student repository for an undergraduate **Language Processing Laboratory** with a strong Persian-NLP component. Only released material is included. Session 01 covers reproducibility, UTF-8/Unicode, Persian-vs-Arabic character variants, ZWNJ, conservative normalization, and corpus-quality auditing.
+A public student repository for a **120-minute-per-session undergraduate Language Processing Laboratory** focused on Persian NLP. Only released materials are available. Session 01 teaches Unicode/ZWNJ/data hygiene; Session 02 teaches regular expressions and reproducible, task-aware preprocessing.
 
-**Students should not publish completed solution notebooks in public repositories.**
+Student submissions and solution notebooks must **not** be posted publicly.
