@@ -10,6 +10,7 @@
 | ---: | ---: | ---: |
 | [01_foundations](sessions/01_foundations/session01_persian_nlp_foundations.ipynb) · [README](sessions/01_foundations/README.md) | &#x2067;مبانی پردازش متن فارسی: &#x2066;`Unicode`&#x2069;، &#x2066;`UTF-8`&#x2069;، &#x2066;`ZWNJ`&#x2069; و ممیزی داده&#x2069; | **۰۱** |
 | [02_regex_preprocessing](sessions/02_regex_preprocessing/session02_persian_regex_preprocessing.ipynb) · [README](sessions/02_regex_preprocessing/README.md) | &#x2067;عبارت‌های منظم (&#x2066;`regex`&#x2069;)، استخراج الگو، مدیریت فاصله‌ها و پیش‌پردازش نظام‌مند متن فارسی&#x2069; | **۰۲** |
+| [03_tokenization](sessions/03_tokenization/session03_persian_tokenization.ipynb) · [README](sessions/03_tokenization/README.md) | &#x2067;توکن‌سازی فارسی: فاصله‌به‌فاصله، مرز واژه، و BPE مبتنی بر بایت؛ مقایسهٔ واژه و زیرواژه&#x2069; | **۰۳** |
 
 ## شروع سریع
 
@@ -23,7 +24,7 @@ jupyter lab
 
 اگر برای اولین‌بار محیط را نصب می‌کنید: [راهنمای کامل نصب](docs/SETUP_FA.md).
 
-&#x2067;**برای جلسهٔ ۰۲، فایل** &#x2066;`sessions/02_regex_preprocessing/data/raw_persian_messages.txt`&#x2069; **را در کنار notebook مطابق ساختار موجود نگه دارید.** در JupyterLab، notebook را از پوشهٔ خودش باز کنید.&#x2069;
+&#x2067;**برای جلسهٔ ۰۲، فایل** &#x2066;`sessions/02_regex_preprocessing/data/raw_persian_messages.txt`&#x2069; **را در کنار notebook نگه دارید.** برای جلسهٔ ۰۳ هر دو فایل `sessions/03_tokenization/data/` باید موجود باشند. هر notebook را در JupyterLab از پوشهٔ خودش اجرا کنید.&#x2069;
 
 ## قوانین مهم دانشجو
 
@@ -46,6 +47,6 @@ jupyter lab
 
 ## English summary
 
-A public student repository for a **120-minute-per-session undergraduate Language Processing Laboratory** focused on Persian NLP. Only released materials are available. Session 01 teaches Unicode/ZWNJ/data hygiene; Session 02 teaches regular expressions and reproducible, task-aware preprocessing.
+A public student repository for a **120-minute-per-session undergraduate Language Processing Laboratory** focused on Persian NLP. Only released materials are available. Session 01 teaches Unicode/ZWNJ/data hygiene; Session 02 teaches regular expressions and reproducible, task-aware preprocessing. Session 03 compares whitespace, Unicode/Persian word boundaries and byte-level BPE with distinct word-span and subword evaluation protocols.
 
 Student submissions and solution notebooks must **not** be posted publicly.

@@ -1,3 +1,4 @@
 # Publicly released session folders; update only when a lab becomes public.
 01_foundations
 02_regex_preprocessing
+03_tokenization

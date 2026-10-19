@@ -2,6 +2,14 @@
 
 همهٔ تغییرات عمومی و منتشرشدهٔ مخزن در این فایل ثبت می‌شوند.
 
+## 1.2.0 — Session 03 release
+
+- &#x2067;انتشار starter notebook جلسهٔ ۰۳: Persian Tokenization — space-to-space، word boundary و byte-level BPE؛&#x2069;
+- &#x2067;افزودن مجموعهٔ کوچک gold با spanهای واژه‌ای و دادهٔ مستقل آموزش BPE؛&#x2069;
+- &#x2067;افزودن ارزیابی word-span و سنجه‌های جداگانه برای BPE، آزمون‌های عمومی و تحلیل خطا؛&#x2069;
+- &#x2067;به‌روزرسانی فهرست جلسات، راهنماها، واژه‌نامه و اعتبارسنج notebook؛&#x2069;
+- حفظ فایل‌های آموزشی جلسه‌های ۰۱ و ۰۲ بدون تغییر.
+
 ## 1.1.0 — Session 02 release
 
 - &#x2067;انتشار starter notebook جلسهٔ ۰۲: Regular Expressions and Persian Text Preprocessing؛&#x2069;

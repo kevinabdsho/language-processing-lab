@@ -13,6 +13,9 @@ EXPECTED_MARKERS = {
     '02': ['Learning outcomes', 'Regular Expressions', 'Information extraction',
            'normalize_spacing', 'preprocess_persian', 'Exit ticket',
            'Final submission checklist'],
+    '03': ['Learning outcomes', 'Space-to-space', 'Word boundaries',
+           'Byte Pair Encoding (BPE)', 'Evaluation', 'Exit ticket',
+           'Final submission checklist'],
 }
 
 def main(path: Path) -> int:
@@ -45,6 +48,31 @@ def main(path: Path) -> int:
             ast.parse(source)
         except SyntaxError as exc:
             errors.append(f'Code cell {index} has syntax error: {exc}')
+    if session == '03':
+        data_dir = path.parent / 'data'
+        gold_path = data_dir / 'tokenization_gold.tsv'
+        train_path = data_dir / 'bpe_train.txt'
+        try:
+            gold_lines = [line for line in gold_path.read_text(encoding='utf-8').splitlines()
+                          if line and not line.startswith('#')]
+            assert len(gold_lines) >= 12, 'Need at least 12 gold evaluation examples.'
+            records = [line.split('\t') for line in gold_lines]
+            assert all(len(rec) == 3 and all(rec) for rec in records), 'Expected three nonempty TSV columns.'
+            assert len({rec[0] for rec in records}) == len(records), 'Duplicate gold IDs.'
+            assert all(rec[2].split('|') and all(rec[2].split('|')) for rec in records), 'Empty gold token.'
+            for sample_id, text, annotation in records:
+                cursor = 0
+                for token in annotation.split('|'):
+                    start = text.find(token, cursor)
+                    assert start >= 0, f'Missing reference token for {sample_id}: {token!r}'
+                    assert text[cursor:start].isspace() or start == cursor, f'Non-space gap in {sample_id}.'
+                    cursor = start + len(token)
+                assert not text[cursor:].strip(), f'Uncovered text in {sample_id}.'
+            train_lines = [line for line in train_path.read_text(encoding='utf-8').splitlines() if line.strip()]
+            assert len(train_lines) >= 12, 'Need at least 12 BPE training lines.'
+            assert not ({rec[1] for rec in records} & set(train_lines)), 'Gold text leaked into training.'
+        except (OSError, UnicodeError, AssertionError) as exc:
+            errors.append(f'Session 03 data validation failed: {exc}')
     if errors:
         print(f'Notebook validation FAILED: {path}')
         for error in errors:
