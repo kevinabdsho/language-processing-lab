@@ -2,6 +2,14 @@
 
 همهٔ تغییرات عمومی و منتشرشدهٔ مخزن در این فایل ثبت می‌شوند.
 
+## 1.3.0 — Session 04 release
+
+- &#x2067;انتشار starter notebook جلسهٔ ۰۴: واژه‌های ایست، ریشه‌یابی، بن‌واژه‌سازی و اصلاح املای فارسی با فاصلهٔ Levenshtein؛&#x2069;
+- افزودن فهرست آموزشی و task-specific واژه‌های ایست و واژه‌نامهٔ کوچک TSV با lemma و فراوانی؛
+- &#x2067;افزودن آزمون‌های عمومی برای حذف واژه‌های ایست با حفظ نفی، stemming، lemmatization، فاصلهٔ ویرایشی و پیشنهاد اصلاح املایی؛&#x2069;
+- &#x2067;به‌روزرسانی فهرست جلسات، واژه‌نامه و validator؛ وابستگی اصلی همچنان Python Standard Library است؛&#x2069;
+- حفظ محتوای notebookهای جلسه‌های ۰۱، ۰۲ و ۰۳.
+
 ## 1.2.0 — Session 03 release
 
 - &#x2067;انتشار starter notebook جلسهٔ ۰۳: Persian Tokenization — space-to-space، word boundary و byte-level BPE؛&#x2069;

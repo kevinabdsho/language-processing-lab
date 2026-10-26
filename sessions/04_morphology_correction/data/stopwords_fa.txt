@@ -1,0 +1,19 @@
+# Persian stopword examples for this teaching lab (UTF-8; one normalized item per line).
+# This is NOT a universal Persian stopword list; decide from your task and data.
+از
+با
+به
+بر
+برای
+در
+را
+و
+یا
+که
+این
+آن
+یک
+است
+تا
+هم
+نیز

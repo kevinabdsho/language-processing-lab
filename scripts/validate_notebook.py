@@ -16,6 +16,9 @@ EXPECTED_MARKERS = {
     '03': ['Learning outcomes', 'Space-to-space', 'Word boundaries',
            'Byte Pair Encoding (BPE)', 'Evaluation', 'Exit ticket',
            'Final submission checklist'],
+    '04': ['Learning outcomes', 'Stopwords', 'Why remove stopwords?', 'Stemming',
+           'Lemmatization', 'Levenshtein edit distance', 'spelling correction',
+           'Exit ticket', 'Final submission checklist'],
 }
 
 def main(path: Path) -> int:
@@ -73,6 +76,25 @@ def main(path: Path) -> int:
             assert not ({rec[1] for rec in records} & set(train_lines)), 'Gold text leaked into training.'
         except (OSError, UnicodeError, AssertionError) as exc:
             errors.append(f'Session 03 data validation failed: {exc}')
+    if session == '04':
+        data_dir = path.parent / 'data'
+        stop_path = data_dir / 'stopwords_fa.txt'
+        lexicon_path = data_dir / 'mini_lexicon_fa.tsv'
+        try:
+            stopwords = {line.strip() for line in stop_path.read_text(encoding='utf-8').splitlines()
+                         if line.strip() and not line.lstrip().startswith('#')}
+            assert len(stopwords) >= 10, 'Need at least 10 teaching stopwords.'
+            forbidden_negation = {'نه', 'نیست', 'نمی', 'بدون'}
+            assert not (stopwords & forbidden_negation), 'Do not include explicit negation forms in the supplied stopword list.'
+            lex_lines = [line for line in lexicon_path.read_text(encoding='utf-8').splitlines() if line.strip()]
+            assert len(lex_lines) >= 21, 'Need a header and at least 20 lexicon entries.'
+            assert lex_lines[0].split('\t') == ['word', 'frequency', 'lemma'], 'Unexpected lexicon TSV header.'
+            records = [line.split('\t') for line in lex_lines[1:]]
+            assert all(len(rec) == 3 and all(rec) for rec in records), 'Each lexicon row must have word, frequency and lemma.'
+            assert len({rec[0] for rec in records}) == len(records), 'Duplicate lexicon word.'
+            assert all(rec[1].isdigit() and int(rec[1]) > 0 for rec in records), 'Frequencies must be positive integers.'
+        except (OSError, UnicodeError, AssertionError) as exc:
+            errors.append(f'Session 04 data validation failed: {exc}')
     if errors:
         print(f'Notebook validation FAILED: {path}')
         for error in errors:
